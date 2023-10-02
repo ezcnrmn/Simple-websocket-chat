@@ -1,0 +1,66 @@
+.notification-container {
+	position: fixed;
+	bottom: var(--padding);
+	right: var(--padding);
+}
+
+.notification {
+	width: 300px;
+	padding: 0.5em;
+}
+.notification + .notification {
+	margin-block-start: 10px;
+}
+
+.notification__header {
+	display: flex;
+	align-items: center;
+}
+
+.notification__icon {
+	height: 1.5em;
+	width: 1.5em;
+	margin-inline-end: 0.2em;
+}
+.notification__title {
+	margin-top: -3px; /* выравниваю шрифт относительно иконок */
+}
+.notification__close {
+	font-size: 1em;
+
+	padding-block-start: 0;
+	padding-inline-start: 0.2em;
+	padding-block-end: 0;
+	padding-inline-end: 0;
+	margin-inline-start: auto;
+
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	align-self: flex-start;
+}
+.notification__close:hover {
+	opacity: 0.7;
+}
+.notification__close-icon {
+	height: 1.5em;
+	width: 1.5em;
+}
+
+.notification__description {
+	font-size: 0.8em;
+	margin-block-start: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+	.notification {
+		background-color: var(--dark-highlight-color);
+		border: 0.1em solid var(--dark-background-color);
+	}
+}
+@media (prefers-color-scheme: light) {
+	.notification {
+		background-color: var(--light-highlight-color);
+		border: 0.1em solid var(--light-background-color);
+	}
+}

@@ -1,0 +1,28 @@
+.details {
+	margin-block-end: 0.3em;
+}
+
+.details__title {
+	display: flex;
+	cursor: pointer;
+}
+.details__title:focus {
+	outline: 0.1em solid currentColor;
+	outline-offset: var(--outline-offset);
+}
+.details__title::before {
+	content: '+';
+	display: block;
+	text-align: center;
+	width: 1em;
+	height: 1em;
+	margin-inline-end: 0.5em;
+	border: 1px solid currentColor;
+}
+.details[open] .details__title::before {
+	content: '–';
+}
+
+.details__content {
+	margin-block-start: 0.5em;
+}

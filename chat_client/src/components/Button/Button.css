@@ -1,0 +1,60 @@
+.button {
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border: none;
+	padding-inline: 1em;
+	padding-block: 0.3em;
+	font-size: 1em;
+}
+.button:hover,
+.button:active {
+}
+.button:focus {
+	outline: 0.1em solid currentColor;
+	outline-offset: var(--outline-offset);
+}
+.button:disabled {
+	opacity: 0.6;
+}
+.button:not(:disabled) {
+	cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+	.button {
+		background-color: var(--dark-input-color);
+		color: var(--dark-font-primary-color);
+	}
+	.button:hover:not(:disabled),
+	.button:active:not(:disabled) {
+		background-color: var(--dark-input-color-active);
+	}
+	.button:focus {
+		background-color: var(--dark-input-color-active);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.button {
+		background-color: var(--light-input-color);
+		color: var(--light-font-primary-color);
+	}
+	.button:hover:not(:disabled),
+	.button:active:not(:disabled) {
+		background-color: var(--light-input-color-active);
+	}
+	.button:focus {
+		background-color: var(--light-input-color-active);
+	}
+}
+
+.button--pressable {
+	transition: border 0.15s cubic-bezier(0.1, 2, 0.5, 2) 0.15s;
+	height: 1.8em;
+	display: inline-block;
+	overflow: hidden;
+}
+.button--pressable:active:not(:disabled) {
+	border-block-start: 0.5em solid currentColor;
+	vertical-align: bottom;
+}

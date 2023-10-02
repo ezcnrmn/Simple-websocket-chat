@@ -1,0 +1,101 @@
+.app {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	padding: var(--padding);
+	padding-block-start: calc((var(--padding) - 0.5em));
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--gap);
+}
+.header__theme {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+}
+
+.navigation {
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	gap: var(--gap);
+}
+.navigation__item {
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	line-height: 1.2;
+	padding-inline: 1em;
+	padding-block: 0.3em;
+	transition: margin 0.3s, border 0.3s;
+	border-block-end: 1px solid currentColor;
+	margin-block-start: 0.5em;
+}
+.navigation__item:hover {
+}
+.navigation__item:focus {
+	outline: 0.1em solid currentColor;
+}
+.navigation__item--active,
+.navigation__item--active:focus {
+	border-block-end: 0.5em solid currentColor;
+	margin-block-start: 1px;
+}
+
+.main {
+	width: calc(100% - var(--padding) * 2);
+	max-width: 1110px;
+	padding: var(--padding);
+	margin-inline: auto;
+	flex-grow: 1;
+}
+
+.footer {
+	margin-block-start: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+	.header {
+		background-color: var(--dark-header-color);
+	}
+
+	.navigation__item {
+		color: var(--dark-font-primary-color);
+		background-color: var(--dark-input-color);
+		/* padding-block-start: 1px; */
+	}
+
+	.navigation__item:hover,
+	.navigation__item:focus {
+		background-color: var(--dark-input-color-active);
+	}
+	.navigation__item--active,
+	.navigation__item--active:focus {
+		background-color: var(--dark-input-color-active);
+		/* padding-block-start: 1px; */
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.header {
+		background-color: var(--light-header-color);
+	}
+
+	.navigation__item {
+		color: var(--light-font-primary-color);
+		background-color: var(--light-input-color);
+	}
+
+	.navigation__item:hover,
+	.navigation__item:focus {
+		background-color: var(--light-input-color-active);
+	}
+	.navigation__item--active,
+	.navigation__item--active:focus {
+		background-color: var(--light-input-color-active);
+	}
+}

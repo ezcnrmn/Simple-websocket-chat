@@ -1,0 +1,17 @@
+.range {
+	width: 5em;
+}
+.range:disabled {
+	opacity: 0.6;
+}
+
+@media (prefers-color-scheme: dark) {
+	.range {
+		accent-color: var(--dark-input-color);
+	}
+}
+@media (prefers-color-scheme: light) {
+	.range {
+		accent-color: var(--light-input-color);
+	}
+}

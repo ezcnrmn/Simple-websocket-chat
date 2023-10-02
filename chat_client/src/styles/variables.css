@@ -1,0 +1,30 @@
+:root {
+	/* fonts */
+	--font-size: 20px;
+
+	/* colors */
+	--default-hue: 230;
+
+	--dark-header-color: hsl(var(--default-hue), 40%, 30%);
+	--dark-background-color: hsl(calc(var(--default-hue) + 180), 15%, 10%);
+	--dark-font-primary-color: hsl(var(--default-hue), 50%, 85%);
+	--dark-font-secondary-color: hsl(var(--default-hue), 40%, 30%);
+	--dark-highlight-color: hsl(var(--default-hue), 40%, 30%);
+	--dark-input-color: hsl(var(--default-hue), 60%, 20%);
+	--dark-input-color-active: hsl(var(--default-hue), 60%, 17%);
+	--dark-selection-color: hsl(var(--default-hue), 50%, 55%);
+
+	--light-header-color: hsl(var(--default-hue), 40%, 40%);
+	--light-background-color: hsl(calc(var(--default-hue) + 180), 50%, 90%);
+	--light-font-primary-color: hsl(var(--default-hue), 50%, 15%);
+	--light-font-secondary-color: hsl(var(--default-hue), 40%, 40%);
+	--light-highlight-color: hsl(var(--default-hue), 40%, 80%);
+	--light-input-color: hsl(var(--default-hue), 50%, 65%);
+	--light-input-color-active: hsl(var(--default-hue), 50%, 68%);
+	--light-selection-color: hsl(var(--default-hue), 60%, 65%);
+
+	/* layout */
+	--padding: 1em;
+	--gap: 0.5em;
+	--outline-offset: 1px;
+}

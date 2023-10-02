@@ -1,0 +1,21 @@
+.authentication {
+}
+.authentication__header {
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+}
+.authentication__title {
+}
+
+.authentication__toggle {
+}
+.authentication__form {
+	margin-block-start: 0.5em;
+	width: fit-content;
+}
+.authentication__submit {
+	margin-block-start: 0.5em;
+	display: flex;
+	justify-content: center;
+}

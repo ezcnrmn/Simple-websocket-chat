@@ -1,0 +1,66 @@
+.toggle {
+	--toggle-width: 2em;
+	--toggle-hight: 1em;
+	--gap: 0.3em;
+	display: inline-block;
+	height: var(--toggle-hight);
+	padding-inline-start: calc(var(--toggle-width) + var(--gap));
+}
+
+.toggle__input {
+	position: absolute;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+}
+.toggle__toggle {
+	position: absolute;
+	margin-inline-start: calc(0em - var(--toggle-width) - var(--gap));
+	height: var(--toggle-hight);
+	width: var(--toggle-width);
+	border-radius: var(--toggle-hight);
+	transition: background-color 0.3s;
+
+	background-color: var(--light-input-color);
+}
+.toggle__input:not(:disabled) + .toggle__toggle:not(:disabled) {
+	cursor: pointer;
+}
+.toggle__toggle::before {
+	--circle-size: 0.7em;
+	content: '';
+	position: absolute;
+	top: calc(((var(--toggle-hight) - var(--circle-size)) / 2));
+	left: calc(((var(--toggle-hight) - var(--circle-size)) / 2));
+	width: var(--circle-size);
+	height: var(--circle-size);
+	border-radius: 50%;
+	transition: background-color 0.3s;
+	transition: left 0.15s cubic-bezier(0.8, -0.7, 0.2, 1.7);
+
+	background-color: var(--dark-input-color);
+}
+.toggle__input:not(:disabled) + .toggle__toggle:hover::before {
+	opacity: 0.9;
+}
+
+.toggle__input:checked + .toggle__toggle {
+	background-color: var(--dark-input-color);
+}
+.toggle__input:checked + .toggle__toggle::before {
+	left: initial;
+	/* right: calc(((var(--toggle-hight) - var(--circle-size)) / 2)); */
+	left: calc(((var(--toggle-width) - var(--circle-size)) - ((var(--toggle-hight) - var(--circle-size)) / 2)));
+
+	background-color: var(--light-input-color);
+}
+
+.toggle__input:disabled + .toggle__toggle {
+	opacity: 0.6;
+}
+
+.toggle__input:focus + .toggle__toggle {
+	outline: 0.1em solid currentColor;
+	outline-offset: var(--outline-offset);
+}
