@@ -1,6 +1,9 @@
 .authentication {
 }
 .authentication__header {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
 	display: flex;
 	align-items: center;
 	gap: var(--gap);
@@ -11,6 +14,8 @@
 .authentication__toggle {
 }
 .authentication__form {
+	margin-left: auto;
+	margin-right: auto;
 	margin-block-start: 0.5em;
 	width: fit-content;
 }

@@ -28,7 +28,7 @@ host.interceptors.response.use(
 				localStorage.setItem(TOKEN_STORAGE_KEY, response.data.tokens.accessToken);
 				return host.request(originalRequest);
 			} catch (__) {
-				showNotification({ title: 'Authentication error', type: 'error' }, 0);
+				// showNotification({ title: 'Authentication error', type: 'error' }, 0);
 			}
 		}
 		throw error;

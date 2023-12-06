@@ -4,6 +4,7 @@ const userController = require('../controllers/userController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 router.post('/user/signin', userController.loginUser);
+router.get('/user/current', authMiddleware, userController.currentUser);
 router.post('/user/signup', userController.registerUser);
 router.post('/user/logout', userController.logout);
 router.get('/user/refresh', userController.refresh);

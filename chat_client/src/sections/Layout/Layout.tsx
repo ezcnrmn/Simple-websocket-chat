@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import Range from '../../components/Range';
 import Navigation from './Navigation';
 import Button from '../../components/Button';
 import chatState from '../../store/chatState';
 import showNotification from '../../components/Notification/showNotification';
-import { logout } from '../../api/userApi';
-import './layout.css';
+import { currentUser, logout } from '../../api/userApi';
 import { COLOR_PROP_NAME } from '../../helpers/consts';
+import Loading from '../../components/Loading';
+import './layout.css';
 
 const getDefaultColor = () => {
 	const color = window.localStorage.getItem(COLOR_PROP_NAME);
@@ -18,7 +19,23 @@ const getDefaultColor = () => {
 };
 
 const Layout: React.FC = () => {
+	const [loading, setLoading] = useState(true);
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		const loadUser = async () => {
+			const response = await currentUser();
+
+			if (response.isOk) {
+				chatState.setCurrentUser(response.data);
+			} else {
+				navigate('/authentication');
+			}
+			setLoading(false);
+		};
+
+		loadUser();
+	}, []);
 
 	const logoutHandler = async () => {
 		const { currentUser } = chatState;
@@ -68,9 +85,7 @@ const Layout: React.FC = () => {
 				) : null}
 			</header>
 
-			<main className="main">
-				<Outlet />
-			</main>
+			<main className="main">{loading ? <Loading /> : <Outlet />}</main>
 
 			<footer className="footer" />
 		</>

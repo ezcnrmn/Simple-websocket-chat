@@ -18,6 +18,8 @@ import {
 } from '../../components/Icons';
 import showNotification from '../../components/Notification/showNotification';
 import TextArea from '../../components/TextArea';
+import Loading from '../../components/Loading';
+import OnScreenLoader from '../../components/OnScreenLoader';
 
 const LOREM_100 =
 	'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto placeat modi autem, minima incidunt natus, velit accusamus cum a beatae, adipisci dolorem blanditiis. Nesciunt nemo perspiciatis doloremque qui autem esse expedita voluptatum possimus reprehenderit? A, enim natus, facilis animi quae dolore sequi maxime fuga nisi tempora ullam aspernatur aut dolor ducimus assumenda quam porro quas voluptatum iusto. Tenetur facere nam eos libero fugiat fugit laboriosam illo, pariatur architecto! Velit nobis et sed soluta doloremque explicabo aut labore repellendus minima deserunt atque molestiae praesentium tempore, itaque cumque voluptas sint! Ut nulla atque enim nostrum nesciunt repudiandae at minus alias impedit accusantium.';
@@ -140,6 +142,17 @@ const LayoutTestPage: React.FC = () => {
 				</Button>
 			</div>
 			<hr />
+
+			<OnScreenLoader onVisible={() => console.log('Intersection')}>console.log on intersect</OnScreenLoader>
+			<hr />
+
+			<OnScreenLoader onVisible={() => console.log('Intersected and destroyed')} destroyOnVisible>
+				console.log on intersect
+			</OnScreenLoader>
+			OnScreenLoader destroyed
+			<hr />
+
+			<Loading />
 		</div>
 	);
 };

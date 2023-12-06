@@ -5,7 +5,6 @@ import { wsReceivedMessage } from '../../types/chatTypes';
 import chatState from '../../store/chatState';
 import WSChat from '../../api/websocket/WSChat';
 import showNotification from '../../components/Notification/showNotification';
-import { useNavigate } from 'react-router-dom';
 import './chat.css';
 
 const onMessage = (event: MessageEvent) => {
@@ -57,11 +56,7 @@ const onMessage = (event: MessageEvent) => {
 };
 
 const ChatPage: React.FC = () => {
-	const navigate = useNavigate();
-
 	useEffect(() => {
-		if (!chatState.isAuthorizated) navigate('/');
-
 		document.title = 'Chatrooms';
 
 		const wschat = new WSChat();

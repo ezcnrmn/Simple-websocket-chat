@@ -30,10 +30,7 @@ const Navigation: React.FC = () => {
 				</>
 			)}
 
-			{/* <NavLink to="/notfound" className={setActive}>
-				notfound
-			</NavLink>
-			<NavLink to="/layout-test" className={setActive}>
+			{/* <NavLink to="/layout-test" className={setActive}>
 				layout-test
 			</NavLink> */}
 		</nav>

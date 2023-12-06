@@ -5,8 +5,9 @@ import chatState, { MessagesInParts } from '../../../store/chatState';
 import Message from './Message';
 import Button from '../../../components/Button';
 import showNotification from '../../../components/Notification/showNotification';
-import '../chat.css';
 import { CrossSquareIcon } from '../../../components/Icons';
+import OnScreenLoader from '../../../components/OnScreenLoader';
+import '../chat.css';
 
 const onDeleteHandler = () => {
 	const errorTitle = 'Error when trying to delete a room';
@@ -41,7 +42,7 @@ const onDeleteHandler = () => {
 	wsChat.deleteRoom(currentRoom);
 };
 
-const loadMessagesInParts = (part: number) => (event: any) => {
+const loadMessagesInParts = (part: number) => () => {
 	const errorTitle = 'Error when trying to load messages';
 	const { wsChat, currentRoom, messagesInParts } = chatState;
 
@@ -65,7 +66,6 @@ const loadMessagesInParts = (part: number) => (event: any) => {
 	}
 
 	wsChat.loadMessages(currentRoom, part);
-	event.target.hidden = true;
 };
 const renderMessageParts = (parts: MessagesInParts['']) => {
 	const result = [];
@@ -76,7 +76,11 @@ const renderMessageParts = (parts: MessagesInParts['']) => {
 				{parts[part].map((message) => (
 					<Message key={message.id} {...message} />
 				))}
-				{part > 0 ? <Button onClick={loadMessagesInParts(part - 1)}>Load messages</Button> : null}
+				{part > 0 ? (
+					<OnScreenLoader onVisible={loadMessagesInParts(part - 1)} destroyOnVisible>
+						Loading...
+					</OnScreenLoader>
+				) : null}
 			</React.Fragment>
 		);
 

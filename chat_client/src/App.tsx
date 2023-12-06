@@ -19,7 +19,6 @@ const App = function () {
 						<Route path="authentication" element={<AuthenticationPage />} />
 						<Route path="chatrooms" element={<ChatPage />} />
 						<Route path="layout-test" element={<LayoutTestPage />} />
-						{/* <Route path="chatrooms/:chatroomId" element={<div />} /> */}
 						<Route path="*" element={<NotFound />} />
 					</Route>
 				</Routes>

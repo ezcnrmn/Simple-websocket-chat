@@ -44,6 +44,23 @@ class UserController {
 		}
 	}
 
+	async currentUser(req, res, next) {
+		const { username } = req.user;
+
+		try {
+			const user = await UserService.findByUsername(username);
+
+			if (!user) {
+				next(ApiError.BadRequest('User is not found'));
+				return;
+			}
+
+			res.json({ user: { id: user.id, username: user.username } });
+		} catch (error) {
+			next(error);
+		}
+	}
+
 	async registerUser(req, res, next) {
 		const { username, password } = req.body;
 

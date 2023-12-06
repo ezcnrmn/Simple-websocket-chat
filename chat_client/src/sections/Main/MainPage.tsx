@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import chatState from '../../store/chatState';
-import { useNavigate } from 'react-router-dom';
 
 const MainPage: React.FC = () => {
-	const { currentUser, isAuthorizated } = chatState;
-	const navigate = useNavigate();
+	const { currentUser } = chatState;
 
 	useEffect(() => {
-		if (!isAuthorizated) navigate('./authentication');
-
 		document.title = 'Chat';
 	}, []);
 

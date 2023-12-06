@@ -3,7 +3,7 @@ const config = require('../config');
 
 const generateTokens = (payload) => {
 	try {
-		const accessToken = jwt.sign(payload, config.JWT_ACCESS_SECRET, { expiresIn: '15s' });
+		const accessToken = jwt.sign(payload, config.JWT_ACCESS_SECRET, { expiresIn: '10m' });
 		const refreshToken = jwt.sign(payload, config.JWT_REFRESH_SECRET, { expiresIn: '30d' });
 
 		return { accessToken, refreshToken };
